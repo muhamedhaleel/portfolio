@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammed Haleel | Python & Django Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', sans-serif; }
+      .glass {
+        background: rgba(255,255,255,0.15);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 20px;
+        border: 1.5px solid rgba(255,255,255,0.25);
+      }
+      .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1); }
+      .fade-in.visible { opacity: 1; transform: none; }
+      .floating-nav { box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18); background: rgba(20, 24, 40, 0.85); backdrop-filter: blur(10px); border-radius: 18px; }
+      .diagonal {
+        clip-path: polygon(0 0, 100% 5vw, 100% 100%, 0 100%);
+      }
+      .diagonal-reverse {
+        clip-path: polygon(0 5vw, 100% 0, 100% 100%, 0 100%);
+      }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] text-white min-h-screen">
+
+    <!-- Floating Navbar -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 w-[90vw] max-w-5xl floating-nav z-50 flex justify-between items-center px-8 py-3">
+        <div class="flex items-center gap-3">
+            <span class="ml-3 flex items-center justify-center w-10 h-10 rounded-full border-2 border-fuchsia-400 bg-white">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="8" width="20" height="10" rx="2" fill="#a21caf" fill-opacity="0.12"/>
+                <rect x="4" y="8" width="20" height="10" rx="2" stroke="#a21caf" stroke-width="2"/>
+                <rect x="7" y="11" width="14" height="2" rx="1" fill="#a21caf"/>
+                <rect x="10" y="15" width="8" height="1.5" rx="0.75" fill="#a21caf" fill-opacity="0.7"/>
+                <rect x="2" y="19" width="24" height="2" rx="1" fill="#a21caf" fill-opacity="0.2"/>
+                <rect x="2" y="19" width="24" height="2" rx="1" stroke="#a21caf" stroke-width="1"/>
+              </svg>
+            </span>
+            <span class="text-2xl font-extrabold tracking-tight text-white">Muhammed Haleel</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-lg font-semibold">
+            <a href="#home" class="hover:text-fuchsia-400 transition-colors">Home</a>
+            <a href="#about" class="hover:text-fuchsia-400 transition-colors">About</a>
+            <a href="#skills" class="hover:text-fuchsia-400 transition-colors">Skills</a>
+            <a href="#projects" class="hover:text-fuchsia-400 transition-colors">Projects</a>
+            <a href="#contact" class="hover:text-fuchsia-400 transition-colors">Contact</a>
+        </div>
+        <button id="menu-btn" class="md:hidden flex items-center px-3 py-2 border rounded text-fuchsia-400 border-fuchsia-400 hover:bg-fuchsia-900/20 focus:outline-none">
+            <i class="ph-list text-2xl"></i>
+        </button>
+    </nav>
+    <div id="mobile-menu" class="md:hidden fixed top-20 left-1/2 -translate-x-1/2 w-[90vw] max-w-5xl glass hidden px-8 pb-4 z-40">
+        <a href="#home" class="block py-2 hover:text-fuchsia-400">Home</a>
+        <a href="#about" class="block py-2 hover:text-fuchsia-400">About</a>
+        <a href="#skills" class="block py-2 hover:text-fuchsia-400">Skills</a>
+        <a href="#projects" class="block py-2 hover:text-fuchsia-400">Projects</a>
+        <a href="#contact" class="block py-2 hover:text-fuchsia-400">Contact</a>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (btn && menu) {
+          btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+          });
+        }
+      });
+    </script>
+
+    <!-- Hero Section with SVG -->
+    <section id="home" class="relative flex flex-col justify-center items-center text-center h-[100vh] min-h-[700px] overflow-hidden fade-in">
+        <svg class="absolute inset-0 w-full h-full z-0" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="heroGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#06b6d4"/>
+              <stop offset="100%" stop-color="#a21caf"/>
+            </linearGradient>
+          </defs>
+          <circle cx="1200" cy="200" r="400" fill="url(#heroGradient)" fill-opacity="0.18"/>
+          <circle cx="300" cy="700" r="300" fill="url(#heroGradient)" fill-opacity="0.12"/>
+          <rect x="-100" y="-100" width="600" height="600" rx="120" fill="#a21caf" fill-opacity="0.08"/>
+        </svg>
+        <div class="relative z-10 flex flex-col items-center gap-8">
+            <img src="images/IMG_7792.JPG" alt="Avatar" class="w-40 h-40 rounded-full border-4 border-fuchsia-400 shadow-2xl bg-white/20 glass animate-float" />
+            <h2 class="text-5xl md:text-7xl font-extrabold mb-2 bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-indigo-400 bg-clip-text text-transparent animate-gradient">Hi, I’m Muhammed Haleel</h2>
+            <p class="text-2xl md:text-3xl mb-2 font-medium text-white/80">Python & Django Developer</p>
+            <div class="flex gap-6 justify-center mb-4">
+                <a href="#" class="text-cyan-400 hover:text-fuchsia-400 transition-colors text-3xl" title="LinkedIn"><i class="ph-linkedin-logo"></i></a>
+                <a href="#" class="text-white hover:text-fuchsia-400 transition-colors text-3xl" title="GitHub"><i class="ph-github-logo"></i></a>
+                <a href="mailto:your-email@example.com" class="text-fuchsia-400 hover:text-cyan-400 transition-colors text-3xl" title="Email"><i class="ph-envelope-simple"></i></a>
+            </div>
+            <a href="#projects" class="bg-gradient-to-r from-cyan-400 to-fuchsia-500 text-white px-12 py-4 rounded-full shadow-2xl hover:from-fuchsia-500 hover:to-cyan-400 transition-all text-xl font-bold glass border-2 border-white/20">View My Projects</a>
+        </div>
+    </section>
+
+    <!-- Diagonal About Section -->
+    <section id="about" class="relative py-24 px-6 diagonal fade-in">
+        <div class="max-w-3xl mx-auto glass p-12">
+            <h3 class="text-4xl font-bold mb-8 text-center text-fuchsia-400">About Me</h3>
+            <p class="text-center text-xl text-white/80">
+                I am a self-motivated developer passionate about backend development using Python and Django. I believe in continuous learning and practical implementation. Currently, I am strengthening my problem-solving and SQL skills while building projects that solve real-world problems efficiently.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section with Glass Cards -->
+    <section id="skills" class="relative py-24 px-6 diagonal-reverse fade-in">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="text-4xl font-bold mb-14 text-center text-cyan-400">Skills</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+          <div class="flex flex-col items-center glass p-8 hover:scale-105 hover:shadow-2xl transition-all group border-2 border-fuchsia-400/30">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-14 h-14 mb-2" />
+            <span class="font-semibold text-lg">Python</span>
+          </div>
+          <div class="flex flex-col items-center glass p-8 hover:scale-105 hover:shadow-2xl transition-all group border-2 border-cyan-400/30">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="w-14 h-14 mb-2 bg-white rounded" />
+            <span class="font-semibold text-lg">Django</span>
+          </div>
+          <div class="flex flex-col items-center glass p-8 hover:scale-105 hover:shadow-2xl transition-all group border-2 border-fuchsia-400/30">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="w-14 h-14 mb-2" />
+            <span class="font-semibold text-lg">SQL</span>
+          </div>
+          <div class="flex flex-col items-center glass p-8 hover:scale-105 hover:shadow-2xl transition-all group border-2 border-cyan-400/30">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-14 h-14 mb-2" />
+            <span class="font-semibold text-lg">HTML</span>
+          </div>
+          <div class="flex flex-col items-center glass p-8 hover:scale-105 hover:shadow-2xl transition-all group border-2 border-fuchsia-400/30">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="w-14 h-14 mb-2" />
+            <span class="font-semibold text-lg">CSS</span>
+          </div>
+          <div class="flex flex-col items-center glass p-8 hover:scale-105 hover:shadow-2xl transition-all group border-2 border-cyan-400/30">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="w-14 h-14 mb-2" />
+            <span class="font-semibold text-lg">Git</span>
+          </div>
+          <div class="flex flex-col items-center glass p-8 hover:scale-105 hover:shadow-2xl transition-all group border-2 border-fuchsia-400/30">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS EC2" class="w-14 h-14 mb-2 bg-white rounded" />
+            <span class="font-semibold text-lg">AWS EC2</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section with Overlapping Cards -->
+    <section id="projects" class="relative py-28 px-6 fade-in">
+        <h3 class="text-4xl font-bold mb-14 text-center text-fuchsia-400">Projects</h3>
+        <div class="grid md:grid-cols-2 gap-14 max-w-6xl mx-auto">
+            <div class="relative group">
+                <div class="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-fuchsia-400/20 to-cyan-400/10 rounded-3xl blur-lg opacity-80 z-0"></div>
+                <div class="relative bg-white/10 glass rounded-3xl shadow-2xl p-10 border-2 border-fuchsia-400/30 z-10">
+                    <h4 class="text-2xl font-semibold mb-2 group-hover:text-fuchsia-400 transition-colors">E-Commerce Website</h4>
+                    <p class="mb-2 text-white/80">Developed an e-commerce website with OTP-based signup/login, product listing, and PayPal payment integration.</p>
+                    <p class="text-sm mb-2 text-cyan-300">Tech: Django, MySQL, HTML, CSS, Tailwind</p>
+                    <a href="#" class="text-fuchsia-400 hover:underline flex items-center gap-1"><i class="ph-github-logo"></i> GitHub</a>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-cyan-400/20 to-fuchsia-400/10 rounded-3xl blur-lg opacity-80 z-0"></div>
+                <div class="relative bg-white/10 glass rounded-3xl shadow-2xl p-10 border-2 border-cyan-400/30 z-10">
+                    <h4 class="text-2xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">Student Management System</h4>
+                    <p class="mb-2 text-white/80">Created a CRUD application to manage student data with authentication and admin panel.</p>
+                    <p class="text-sm mb-2 text-fuchsia-300">Tech: Python, Django, SQLite</p>
+                    <a href="#" class="text-cyan-400 hover:underline flex items-center gap-1"><i class="ph-github-logo"></i> GitHub</a>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-fuchsia-400/20 to-cyan-400/10 rounded-3xl blur-lg opacity-80 z-0"></div>
+                <div class="relative bg-white/10 glass rounded-3xl shadow-2xl p-10 border-2 border-fuchsia-400/30 z-10">
+                    <h4 class="text-2xl font-semibold mb-2 group-hover:text-fuchsia-400 transition-colors">Calculator Web App</h4>
+                    <p class="mb-2 text-white/80">Built a simple responsive calculator using HTML, CSS, and JavaScript.</p>
+                    <p class="text-sm mb-2 text-cyan-300">Tech: HTML, CSS, JS</p>
+                    <a href="#" class="text-fuchsia-400 hover:underline flex items-center gap-1"><i class="ph-github-logo"></i> GitHub</a>
+                </div>
+            </div>
+            <div class="relative group">
+                <div class="absolute -top-4 -left-4 w-full h-full bg-gradient-to-br from-cyan-400/20 to-fuchsia-400/10 rounded-3xl blur-lg opacity-80 z-0"></div>
+                <div class="relative bg-white/10 glass rounded-3xl shadow-2xl p-10 border-2 border-cyan-400/30 z-10">
+                    <h4 class="text-2xl font-semibold mb-2 group-hover:text-cyan-400 transition-colors">Blogging Platform</h4>
+                    <p class="mb-2 text-white/80">In-progress personal blogging system with user authentication and post management.</p>
+                    <p class="text-sm mb-2 text-fuchsia-300">Tech: Django</p>
+                    <a href="#" class="text-cyan-400 hover:underline flex items-center gap-1"><i class="ph-github-logo"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Glass -->
+    <section id="contact" class="relative py-28 px-6 fade-in">
+      <div class="max-w-xl mx-auto glass p-12">
+        <div class="flex items-center gap-3 mb-4">
+          <i class="ph-chat-circle-dots text-4xl text-cyan-400"></i>
+          <h3 class="text-3xl font-bold text-cyan-400">Let’s Connect</h3>
+        </div>
+        <p class="text-xl text-white/80 mb-8 text-center">Feel free to reach out for collaboration, or just to say hi!</p>
+        <div class="flex flex-col gap-7 items-center text-2xl mt-2">
+          <div class="flex items-center gap-3">
+            <a href="mailto:muhammedhaleel88@gmail.com" class="text-fuchsia-400 hover:text-cyan-400 transition-colors" title="Email"><i class="ph-envelope-simple text-4xl"></i></a>
+            <a href="mailto:muhammedhaleel88@gmail.com" class="text-lg text-cyan-400 hover:underline">muhammedhaleel88@gmail.com</a>
+          </div>
+          <div class="flex gap-10 justify-center text-4xl">
+            <a href="#" class="text-cyan-400 hover:text-fuchsia-400 transition-colors" title="LinkedIn"><i class="ph-linkedin-logo"></i></a>
+            <a href="#" class="text-white hover:text-fuchsia-400 transition-colors" title="GitHub"><i class="ph-github-logo"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#334155] shadow mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-6 text-center text-white/60 text-lg">
+            © 2025 Muhammed Haleel. Built with <span class="text-fuchsia-400"></span> using HTML & Tailwind CSS.
+        </div>
+    </footer>
+    <script>
+      // Animate fade-in on scroll
+      function onScrollFadeIn() {
+        document.querySelectorAll('.fade-in').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      window.addEventListener('scroll', onScrollFadeIn);
+      window.addEventListener('DOMContentLoaded', onScrollFadeIn);
+      // Floating avatar animation
+      const style = document.createElement('style');
+      style.innerHTML = `@keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-18px); } 100% { transform: translateY(0); } } .animate-float { animation: float 3s ease-in-out infinite; } @keyframes gradient { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } } .animate-gradient { background-size: 200% 200%; animation: gradient 4s ease-in-out infinite; }`;
+      document.head.appendChild(style);
+    </script>
+</body>
+</html>
